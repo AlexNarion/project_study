@@ -16,7 +16,7 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         related_name='products'
     )
-    price = models.CharField(
+    price = models.FloatField(
         validators=[MinValueValidator(0.0)]
     )
 
@@ -24,7 +24,7 @@ class Product(models.Model):
         return f'{self.name.title()}: {self.description[:20]}'
 
 
-class Category:
+class Category(models.Model):
     name = models.CharField(
         max_length=50,
         unique=True
